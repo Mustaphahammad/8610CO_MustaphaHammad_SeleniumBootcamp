@@ -33,6 +33,11 @@ import java.util.Set;
 
 public class BasePage {
 
+    public BasePage(){
+        dataInit();
+        databaseInit();
+    }
+
     Map<Object, String> dbConfig = BaseConfig.databaseConfig();
     public static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator
             + "test" + File.separator + "resources" + File.separator + "test_data.xlsx";
@@ -61,7 +66,7 @@ public class BasePage {
         ExtentTestManager.getTest().assignCategory(className);
     }
 
-    @BeforeMethod(alwaysRun = true)
+
     public void databaseInit() {
         String host = dbConfig.get(BaseConfig.DBProperties.HOST);
         String user = dbConfig.get(BaseConfig.DBProperties.USER);
@@ -71,7 +76,7 @@ public class BasePage {
         db = new Database(host, user, password, className);
     }
 
-    @BeforeMethod(alwaysRun = true)
+
     public void dataInit() {
         excel = new ExcelData(DATA_PATH);
     }
