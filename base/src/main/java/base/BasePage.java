@@ -39,6 +39,7 @@ public class BasePage {
     }
 
     Map<Object, String> dbConfig = BaseConfig.databaseConfig();
+    Map<Object, String> urlConfig = BaseConfig.urlConfig();
     public static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator
             + "test" + File.separator + "resources" + File.separator + "test_data.xlsx";
     public static ExcelData excel;
@@ -81,11 +82,14 @@ public class BasePage {
         excel = new ExcelData(DATA_PATH);
     }
 
+
+
     @Parameters({"driverConfigEnabled", "browser", "url"})
     @BeforeMethod
     public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("http://mbusa.com") String url) {
         if (Boolean.parseBoolean(driverConfigEnabled)) {
             driverInit(browser);
+            url = urlConfig.get(BaseConfig.urlProperty.URL);
             driver.get(url);
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();

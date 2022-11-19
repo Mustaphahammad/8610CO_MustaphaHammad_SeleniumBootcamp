@@ -33,6 +33,23 @@ public class BaseConfig {
         return dbConfig;
     }
 
+    public static Map<Object, String> urlConfig() {
+        try {
+            properties = loadProperties();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        Map<Object, String> urlConfig = new HashMap<>();
+
+        if (properties != null) {
+            urlConfig.put(urlProperty.URL, properties.getProperty("url"));
+        }
+
+        return urlConfig;
+    }
+
+
     private static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(propertiesFile);
@@ -45,6 +62,10 @@ public class BaseConfig {
 
     public enum DBProperties {
         DRIVER_CLASS, HOST, USER, PASSWORD
+    }
+
+    public enum urlProperty {
+        URL
     }
 
 }
