@@ -33,7 +33,7 @@ import java.util.Set;
 
 public class BasePage {
 
-    public BasePage(){
+    public BasePage() {
         dataInit();
         databaseInit();
     }
@@ -81,7 +81,6 @@ public class BasePage {
     public void dataInit() {
         excel = new ExcelData(DATA_PATH);
     }
-
 
 
     @Parameters({"driverConfigEnabled", "browser", "url"})
@@ -174,6 +173,11 @@ public class BasePage {
 
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
         actions.moveToElement(element).perform();
+    }
+
+    public void elementBeforeAndAfterCSSTag(String locator) {
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.cssSelector(locator))).build().perform();
     }
 
     public String getTrimmedElementText(WebElement element) {
@@ -287,6 +291,16 @@ public class BasePage {
         jsDriver.executeScript("arguments[0].setAttribute('" + attribute + "', '" + value + "')", driver.findElement(by));
 
         return driver.findElement(by);
+    }
+
+    public void scrollByVisibleElement(WebElement element) {
+        jsDriver = (JavascriptExecutor) (driver);
+        jsDriver.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void scrollAtTheBottomOfPage() {
+        jsDriver = (JavascriptExecutor) (driver);
+        jsDriver.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
     // endregion
