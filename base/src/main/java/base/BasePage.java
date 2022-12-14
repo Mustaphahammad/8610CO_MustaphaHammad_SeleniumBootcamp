@@ -33,7 +33,7 @@ import java.util.Set;
 
 public class BasePage {
 
-    public BasePage(){
+    public BasePage() {
         dataInit();
         databaseInit();
     }
@@ -201,6 +201,11 @@ public class BasePage {
         element.sendKeys(keys);
     }
 
+//    public void elementBeforeAndAfterCSSTag(String locator) {
+//        Actions action = new Actions(driver);
+//        action.moveToElement(driver.findElement(By.cssSelector(locator))).build().perform();
+//    }
+
     public void selectFromDropdownByVisibleText(WebElement element, String visibleText) {
         Select select = new Select(element);
         select.selectByVisibleText(visibleText);
@@ -283,6 +288,21 @@ public class BasePage {
         jsDriver.executeScript("arguments[0].setAttribute('" + attribute + "', '" + value + "')", driver.findElement(by));
 
         return driver.findElement(by);
+    }
+
+    public void scrollByVisibleElement(WebElement element) {
+        jsDriver = (JavascriptExecutor) (driver);
+        jsDriver.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void scrollPageUp() {
+        Actions a = new Actions(driver);
+        a.sendKeys(Keys.PAGE_UP).build().perform();
+    }
+
+    public void scrollAtTheBottomOfPage() {
+        jsDriver = (JavascriptExecutor) (driver);
+        jsDriver.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
     // endregion
