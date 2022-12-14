@@ -8,5 +8,11 @@
 
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="https://www.apartments.com"/>
+    <test name="Smoke">
+        <classes>
+            <class name="test_app.TestAuthentication"/>
+            <class name="test_app.TestMenuDD"/>
+        </classes>
+    </test>
 
 </suite>
