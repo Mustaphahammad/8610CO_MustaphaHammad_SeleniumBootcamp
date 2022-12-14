@@ -209,6 +209,11 @@ public class BasePage {
         element.sendKeys(keys);
     }
 
+//    public void elementBeforeAndAfterCSSTag(String locator) {
+//        Actions action = new Actions(driver);
+//        action.moveToElement(driver.findElement(By.cssSelector(locator))).build().perform();
+//    }
+
     public void selectFromDropdownByVisibleText(WebElement element, String visibleText) {
         Select select = new Select(element);
         select.selectByVisibleText(visibleText);
@@ -297,6 +302,7 @@ public class BasePage {
         jsDriver = (JavascriptExecutor) (driver);
         jsDriver.executeScript("arguments[0].scrollIntoView();", element);
     }
+
 
     public void scrollAtTheBottomOfPage() {
         jsDriver = (JavascriptExecutor) (driver);
