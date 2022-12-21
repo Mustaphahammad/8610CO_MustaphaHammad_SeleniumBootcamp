@@ -7,6 +7,11 @@
     </listeners>
 
     <parameter name="browser" value="chrome"/>
-    <parameter name="url" value="http://automationpractice.com"/>
+    <parameter name="url" value="https://www.saucedemo.com/"/>
+    <test name="Smoke">
+        <classes>
+            <class name="test_app.TestLogin"/>
+        </classes>
+    </test>
 
 </suite>

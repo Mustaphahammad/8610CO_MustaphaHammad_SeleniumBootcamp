@@ -46,7 +46,6 @@ public class ExcelData {
             System.out.println("Unable to load file - Check file path, or if the file actually exists in file path directory");
             e.printStackTrace();
         }
-
         sheet = workbook.getSheet(sheetName);
         numberOfRows = sheet.getLastRowNum();
         numberOfCol = sheet.getRow(1).getLastCellNum();
