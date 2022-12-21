@@ -104,9 +104,8 @@ public class TestBuildingVehicle extends BasePage {
         buildVehicle.selectFeaturedPackageToBuild();
         buildVehicle.removeFeaturedPackageFromBuild();
         clickOnElement(buildVehicle.premiumSeeALlFeaturesButton);
-        String expText = "Add to build";
         String actText = buildVehicle.premiumAddToBuildButton.getText().trim();
-        Assert.assertEquals(actText,expText);
+        Assert.assertEquals(actText,"Add to build");
     }
 
     @Test(dataProviderClass = data_providers.DataProviderClass.class,dataProvider = "SAVsDesign")

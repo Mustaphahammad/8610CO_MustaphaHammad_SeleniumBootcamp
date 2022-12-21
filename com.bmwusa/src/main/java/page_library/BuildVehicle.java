@@ -173,9 +173,11 @@ public class BuildVehicle extends BasePage {
     }
 
     public void removeFeaturedPackageFromBuild() {
+        WebElement ele;
         safeClickOnElement(fluentWait.until(ExpectedConditions.visibilityOf(premiumRemoveFromBuildButton)));
-        if(isElementVisible(fluentWait.until(ExpectedConditions.visibilityOf(confirmChangesButton)))) {
-            safeClickOnElement(fluentWait.until(ExpectedConditions.visibilityOf(confirmChangesButton)));
+        ele = fluentWait.until(ExpectedConditions.visibilityOf(confirmChangesButton));
+        if (isElementVisible(ele)) {
+            safeClickOnElement(ele);
         }
     }
 

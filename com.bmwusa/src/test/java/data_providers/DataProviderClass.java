@@ -20,14 +20,13 @@ public class DataProviderClass extends BasePage {
         return excel.readStringArrays("AllModelsDesign");
     }
 
-    @DataProvider(name = "AllModelsExterior")
-    public static Object[][] selectExteriorFromAllModels() {
-        return excel.readStringArrays("AllModelsExterior");
-    }
-
     @DataProvider(name = "AllModelsInterior")
     public static Object[][] selectInteriorUpholsteryFromAllModels() {
         return excel.readStringArrays("AllModelsInterior");
+    }
+    @DataProvider(name = "AllModelsExterior")
+    public static Object[][] selectExteriorFromAllModels() {
+        return excel.readStringArrays("AllModelsExterior");
     }
 
     @DataProvider(name = "AllModelsOptions")

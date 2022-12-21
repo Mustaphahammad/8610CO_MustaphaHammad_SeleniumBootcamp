@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ModelsSubPages extends BasePage {
 
+
     @FindBy(xpath = "//nav[@class = 'globalnav-primary-vehicles__filter-nav']//li/button")
     public List<WebElement> modelsList;
 

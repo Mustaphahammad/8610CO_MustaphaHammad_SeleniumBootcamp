@@ -30,7 +30,7 @@ public class TestModelsPage extends BasePage {
     }
 
     @Test(dataProviderClass = data_providers.DataProviderClass.class,dataProvider = "RanVehicleData")
-    public void testSelectingVehicleFromAllModels(String model, String num, String index, String expText){
+    public void testSelectingVehicleFromAllModelsSection(String model, String num, String index, String expText){
         HomePage homePage = new HomePage();
         ModelsSubPages modelsPage = homePage.navigateToModelsPage();
         modelsPage.selectModel(model);
