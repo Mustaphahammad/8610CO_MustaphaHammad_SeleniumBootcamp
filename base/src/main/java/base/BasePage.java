@@ -291,11 +291,6 @@ public class BasePage {
         }
     }
 
-    public void scrollByVisibleElement(WebElement element) {
-        jsDriver = (JavascriptExecutor) (driver);
-        jsDriver.executeScript("arguments[0].scrollIntoView();", element);
-    }
-
     public WebElement setElementAttributeValue(String attribute, String value, By by) {
         jsDriver = (JavascriptExecutor) (driver);
         jsDriver.executeScript("arguments[0].setAttribute('" + attribute + "', '" + value + "')", driver.findElement(by));
